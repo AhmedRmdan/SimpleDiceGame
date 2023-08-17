@@ -1,5 +1,5 @@
-import time
-import numpy as np
+from time import sleep
+from numpy import random
 import json
 
 
@@ -33,7 +33,7 @@ PlayerBalance = float(PlayerBalance)
 
 def get_dice_odds(odd=2):
     """Generates odds for player's risk choices"""
-    return np.random.binomial(n=1, p=PROBABILITIES.get(odd, 0.4704))
+    return random.binomial(n=1, p=PROBABILITIES.get(odd, 0.4704))
 
 
 def store_balance():
@@ -67,10 +67,10 @@ if GameChoiceInput == "exit" or GameChoiceInput == "0":
 
 while GameChoiceInput == "1" or GameChoiceInput == "dice":  # previous if
     print("Dice, A classic!\n")
-    time.sleep(1)
+    sleep(1)
     print("You have $100 to start your joruney")
     print("The casino takes it's cut %20 from every bet.")
-    time.sleep(1)
+    sleep(1)
     print("If you lose all your money, game will be over.")
     print(f"      Your current balance is ${PlayerBalance}\n")
     print("Let's win!\n")
@@ -106,7 +106,7 @@ while GameChoiceInput == "1" or GameChoiceInput == "dice":  # previous if
                     PlayerBalance += UserPotentialWin
 
                     print("\nBetting...\n")
-                    time.sleep(3)
+                    sleep(3)
                     print("\n$ $ $     W I N    $ $ $\n")
                     print("$" * 10)
                     print(f"\n      Current Balance: ${PlayerBalance}\n")
@@ -116,7 +116,7 @@ while GameChoiceInput == "1" or GameChoiceInput == "dice":  # previous if
                     PlayerBalance -= float(DiceBet)
 
                     print("\nBetting...\n")
-                    time.sleep(3)
+                    sleep(3)
                     print("\n      YOU LOST!    \n")
                     print("$" * 10)
                     print(f"\n      Current Balance: ${PlayerBalance}\n")
